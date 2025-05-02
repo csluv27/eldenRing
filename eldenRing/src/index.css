@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+body{
+  font-family: Metropolis, Gotham, Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url(../public/background.jpg);
+
+}
+html, body {
+  overflow-y: auto; /* Đảm bảo thanh cuộn luôn hiển thị */
+  padding-right: 0 !important; /* Tránh bị lệch khi có thanh cuộn */
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../public/background.jpg);
+  background-size: contain;
+  background-position: center;
+  filter: blur(10px);
+  z-index: -1;
+  opacity: 0.6; /* thêm độ mờ nhẹ */
+}
