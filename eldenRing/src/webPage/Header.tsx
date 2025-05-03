@@ -2,17 +2,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 
-
 function Header() {
-
+  const [showTop, setShowTop] = useState(true);
+  useEffect(() => {
+    const handleWheel = (e: { deltaY: number; }) => {
+      if (e.deltaY > 0) {
+        setShowTop(false); // Cuộn xuống => Ẩn header
+      } else if (e.deltaY < 0) {
+        setShowTop(true); // Cuộn lên => Hiện header
+      }
+    };
+    window.addEventListener('wheel', handleWheel);
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, []);
 
   return (
-
-
-
     <header className="fixed top-0 left-0 w-[calc(100vw-15px)] z-50">
-
-      <div className="relative">
+      <div className={`transition-transform duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-full'}`}>
         {/* Top bar */}
         <div className="bg-black h-18 w-full flex items-center justify-end px-10 space-x-9 z-10 ">
           <FontAwesomeIcon icon={faUser} className="text-white text-xl" />
@@ -77,75 +83,73 @@ function Header() {
           <div className="flex-1 bg-green-800" />
           <div className="flex-1 bg-yellow-500" />
           <div className="flex-1 bg-red-400" />
-       
+
         </div>
       </div>
 
+      <div className={`transition-transform duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className={`flex flex-row justify-between z-50 w-full transition-all duration-300`}>
+          <ul className="bg-black h-18 w-full flex items-center px-12 space-x-9 ">
+            <img src="./eldenring_new.png" alt="" className="max-h-15 object-contain mr-15 transform hover:scale-110 transition-transform duration-500 cursor-pointer" />
+            <ul className="flex space-x-8 text-white text-lg">
 
-      <div className='flex flex-row justify-between sticky top-0 backdrop-blur-[45px];'>
-        <ul className="bg-black h-18 w-full flex items-center px-12 space-x-9 ">
-          <img src="./eldenring_new.png" alt="" className="max-h-15 object-contain mr-15 transform hover:scale-110 transition-transform duration-500 cursor-pointer" />
-          <ul className="flex space-x-8 text-white text-lg">
-
-            <li className="relative group inline-block">
-              {/* Phần hiển thị "Yakuza" + icon */}
-              <div className="flex items-center space-x-1 text-white cursor-pointer">
-                <span className='pt-6 pb-6  hover:text-[#c19d53] transition-all duration-500'>Universe</span>
-                <FontAwesomeIcon
-                  icon={faChevronDown}
-                  className="text-sm group-hover:rotate-180  transition-transform duration-400 text-[#c19d53]"
-                />
-              </div>
-              {/* Menu con xuất hiện khi hover vào group */}
-              <div className="absolute top-full left-0 w-70 bg-black text-white 
+              <li className="relative group inline-block">
+                <div className="flex items-center space-x-1 text-white cursor-pointer">
+                  <span className='pt-6 pb-6  hover:text-[#c19d53] transition-all duration-500'>Universe</span>
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    className="text-sm group-hover:rotate-180  transition-transform duration-400 text-[#c19d53]"
+                  />
+                </div>
+                <div className="absolute top-full left-0 w-70 bg-black text-white 
                   opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto 
                   transition-all duration-200 z-50">
-                <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring</div>
-                <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Shadow of the Erdtree (DLC)</div>
-                <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring Tarnished Edition</div>
-                <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring Nightreign</div>
-              </div>
-            </li>
+                  <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring</div>
+                  <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Shadow of the Erdtree (DLC)</div>
+                  <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring Tarnished Edition</div>
+                  <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring Nightreign</div>
+                </div>
+              </li>
 
-            <li className="relative group inline-block">
-              {/* Phần hiển thị "Yakuza" + icon */}
-              <div className="flex items-center space-x-1 text-white cursor-pointer">
-                <span className='pt-6 pb-6  hover:text-[#c19d53] transition-all duration-500'>News</span>
-                <FontAwesomeIcon
-                  icon={faChevronDown}
-                  className="text-sm group-hover:rotate-180 text-[#c19d53] transition-transform duration-400"
-                />
-              </div>
-              {/* Menu con xuất hiện khi hover vào group */}
-              <div className="absolute top-full left-0 w-60 bg-black text-white 
+              <li className="relative group inline-block">
+                <div className="flex items-center space-x-1 text-white cursor-pointer">
+                  <span className='pt-6 pb-6  hover:text-[#c19d53] transition-all duration-500'>News</span>
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    className="text-sm group-hover:rotate-180 text-[#c19d53] transition-transform duration-400"
+                  />
+                </div>
+
+                <div className="absolute top-full left-0 w-60 bg-black text-white 
                   opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto 
                   transition-all duration-200 z-50">
-                <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring Wiki</div>
-                <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Nightreign Wiki</div>
-              </div>
-            </li>
+                  <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Elden Ring Wiki</div>
+                  <div className="px-4 py-2 hover:text-[#c19d53] cursor-pointer ">Nightreign Wiki</div>
+                </div>
+              </li>
 
-            <li className="flex items-center space-x-1 cursor-pointer ">
-              <span className=' hover:text-[#c19d53] transition-all duration-500'>Character</span>
-            </li>
+              <li className="flex items-center space-x-1 cursor-pointer ">
+                <span className=' hover:text-[#c19d53] transition-all duration-500'>Character</span>
+              </li>
 
-            <li className="flex items-center space-x-1 cursor-pointer ">
-              <span className=' hover:text-[#c19d53] transition-all duration-500'>About</span>
-            </li>
+              <li className="flex items-center space-x-1 cursor-pointer ">
+                <span className=' hover:text-[#c19d53] transition-all duration-500'>About</span>
+              </li>
 
+            </ul>
           </ul>
-        </ul>
 
 
-        <ul className="bg-black text-white w-full h-18 flex items-center justify-end px-12 space-x-9">
-          <button className="text-white text-2xl cursor-pointer hover:text-[#c19d53]">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </button>
-          <button className=" text-white border bg-[#c19d53] border-solid border-[#c19d53] font-semibold  text-[15px] px-7 py-2 rounded cursor-pointer hover:bg-black hover:text-[#c19d53] transition">
-            BUY NOW
-          </button>
-        </ul>
+          <ul className="bg-black text-white w-full h-18 flex items-center justify-end px-12 space-x-9">
+            <button className="text-white text-2xl cursor-pointer hover:text-[#c19d53]">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+            <button className=" text-white border bg-[#c19d53] border-solid border-[#c19d53] font-semibold  text-[15px] px-7 py-2 rounded cursor-pointer hover:bg-black hover:text-[#c19d53] transition">
+              BUY NOW
+            </button>
+          </ul>
 
+        </div>
       </div>
 
 
