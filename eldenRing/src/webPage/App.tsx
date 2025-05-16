@@ -1,19 +1,30 @@
 
 import './App.css';
-
+import { useState, useEffect } from 'react';
 export default function App() {
-
+  const [showTop, setShowTop] = useState(true);
+  useEffect(() => {
+    const handleWheel = (e: { deltaY: number; }) => {
+      if (e.deltaY > 0) {
+        setShowTop(false);
+      } else if (e.deltaY < 0) {
+        setShowTop(true);
+      }
+    };
+    window.addEventListener('wheel', handleWheel);
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, []);
 
   return (
     <section className="section-container relative w-full h-[200vh] overflow-x-hidden">
-      {/* VIDEO NỀN FIXED */}
-      <div className="video-fixed relative">
+      <div className='video-fixed relative'>
+
         <video
           src="./videoChude.mp4"
           autoPlay
           muted
           loop
-          className="w-screen fixed mt-30 h-auto object-cover pointer-events-none"
+          className={`w-screen fixed mt-36 h-auto object-cover pointer-events-none transition-transform duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-19'}`}
         />
       </div>
 
@@ -25,7 +36,7 @@ export default function App() {
           backgroundPosition: 'center',
         }}
       >
-        
+
 
         <img
           src="./eldenring_new.png"
@@ -41,7 +52,7 @@ export default function App() {
 
           </div>
         </div>
-   
+
       </div>
     </section>
   );
