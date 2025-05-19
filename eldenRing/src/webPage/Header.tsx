@@ -22,7 +22,7 @@ function Header() {
         {/* Top bar */}
         <div className="bg-black h-18 w-full flex items-center justify-end px-10 space-x-9 z-10 ">
           <FontAwesomeIcon icon={faUser} className="text-white text-xl" />
-          <img src="./vietnam.png" alt="Vietnam" className="max-h-6 object-contain" />
+          <img src="./header/vietnam.png" alt="Vietnam" className="max-h-6 object-contain" />
           <svg className='max-h-12 object-contain w-auto'
             id="be453618-7c74-4c2c-8cd1-f86f1901c5ba"
             width="73"
@@ -90,7 +90,7 @@ function Header() {
       <div className={`transition-transform duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className={`flex flex-row justify-between z-50 w-full transition-all duration-300`}>
           <ul className="bg-black h-18 w-full flex items-center px-12 space-x-9 ">
-            <img src="./eldenring_new.png" alt="" className="max-h-15 object-contain mr-15 transform hover:scale-110 transition-transform duration-500 cursor-pointer" />
+            <img src="./header/eldenring_new.png" alt="" className="max-h-15 object-contain mr-15 transform hover:scale-110 transition-transform duration-500 cursor-pointer" />
             <ul className="flex space-x-8 text-white text-lg">
 
               <li className="relative group inline-block">
