@@ -18,6 +18,8 @@ font-family: 'Cinzel', 'Metropolis', 'Gotham', Gotham, 'Helvetica Neue', Helveti
 html, body {
   overflow-y: auto; /* Đảm bảo thanh cuộn luôn hiển thị */
   padding-right: 0 !important; /* Tránh bị lệch khi có thanh cuộn */
+    box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 

@@ -22,3 +22,8 @@
 .section-container {
   width: calc(100vw + 17px); /* Tránh việc tính luôn thanh cuộn */
 }
+html, body {
+  overflow-x: hidden;
+    box-sizing: border-box;
+  overflow-x: hidden;
+}

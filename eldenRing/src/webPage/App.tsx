@@ -18,7 +18,7 @@ export default function App() {
   }, []);
 
   return (
-    <section className="section-container relative w-full h-[200vh] overflow-x-hidden">
+    <section className="section-container relative w-full h-[200vh] overflow-hidden">
       <div className='video-fixed relative'>
 
         <video
@@ -30,12 +30,12 @@ export default function App() {
         />
       </div>
 
-      <div
-        className="z-2 h-full flex relative mt-201 w-screen items-end justify-center relative-content"
+      <div className="z-2 h-full flex relative mt-201 w-screen items-end justify-center relative-content"
         style={{
-          backgroundImage: "url('/background/erbackground2.jpg')",
+          backgroundImage: "url('/background/erbackground3.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          
         }}
       >
 
@@ -54,7 +54,7 @@ export default function App() {
 
           </div>
         </div>
-        <div className='w-13/15'>
+        <div className='w-13/15 top-90 absolute'>
           <div className="flex flex-row  gap-12">
 
             <div className="text-white flex flex-col w-4/10 gap-1.5">
@@ -78,7 +78,7 @@ export default function App() {
                 <span className='font-bold mt-15'>And become the Elden Lord.</span>
               </div>
               <img src="./detailPage/erreward.png" alt="" className='w-3/5 m-auto pt-10' />
-              <div className='flex flex-row gap-10 m-auto'>
+              <div className='flex flex-row gap-10 pt-12 m-auto'>
                 <div className='border-white border-solid border-1 pt-1 pb-1 pr-4 pl-4'>
                   <img src="./detailPage/xbox.png" alt="" className='w-10' />
                 </div>
@@ -122,7 +122,12 @@ export default function App() {
               className="w-6/10 h-3/4 object-cover "
             ></video>
           </div>
-          <img src="./detailPage/erscore.jpg" alt="" className='m-auto mt-30 w-3/5' />
+          <img
+          src="./detailPage/erscore.jpg"
+          alt=""
+          className='m-auto w-3/5 absolute left-0 right-0 bottom-[-305px]'
+          style={{ zIndex: 3 }}
+        />
         </div>
 
       </div>
