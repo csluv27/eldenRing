@@ -20,8 +20,8 @@ export default function App() {
   return (
     <section className="section-container relative w-full h-[200vh] overflow-hidden">
       <div className='video-fixed relative'>
-
         <video
+
           src="./mainPage/videoChude.mp4"
           autoPlay
           muted
@@ -35,7 +35,7 @@ export default function App() {
           backgroundImage: "url('/background/erbackground3.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          
+
         }}
       >
 
@@ -109,25 +109,27 @@ export default function App() {
                   Add to wishlist
                 </button>
               </div>
-
-
+            </div>
+            <div className='w-6/10'>
+               <img src="./detailPage/erBorder.png" className='z-1 absolute top-[-1.2rem] w-3/5 h-auto' alt="" />
+              <video
+                src="./detailPage/intro.webm"
+                autoPlay
+                muted
+                loop
+                className="w-full h-3/4 object-cover "
+              ></video>
+               <img src="./detailPage/erBorder.png" className='z-1 absolute top-153 w-3/5 right-[-23rem] h-auto' alt="" />
             </div>
 
-
-            <video
-              src="./detailPage/intro.webm"
-              autoPlay
-              muted
-              loop
-              className="w-6/10 h-3/4 object-cover "
-            ></video>
           </div>
+
           <img
-          src="./detailPage/erscore.jpg"
-          alt=""
-          className='m-auto w-3/5 absolute left-0 right-0 bottom-[-305px]'
-          style={{ zIndex: 3 }}
-        />
+            src="./detailPage/erscore.jpg"
+            alt=""
+            className='m-auto w-3/5 absolute left-0 right-0 bottom-[-305px]'
+            style={{ zIndex: 3 }}
+          />
         </div>
 
       </div>
