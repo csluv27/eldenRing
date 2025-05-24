@@ -4,7 +4,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './webPage/App.tsx'
 import Header from './webPage/Header.tsx'
-import DetailP from './webPage/detailP.tsx'
+import DetailP from './webPage/DetailP.tsx'
+import Character from './webPage/Character.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
 
@@ -13,5 +14,6 @@ createRoot(document.getElementById('root')!).render(
 
     <App />
     <DetailP></DetailP>
+    <Character></Character>
   </StrictMode>,
 )

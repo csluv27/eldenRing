@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import  { useEffect, useRef, useState } from 'react';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 
 function DetailP() {
