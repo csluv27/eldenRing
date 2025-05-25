@@ -105,6 +105,7 @@ const CharacterSlider = () => {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center z-20">
+        <h2 className="font-bold text-white text-4xl absolute top-22 left-36 z-20">Characters</h2>
       <div className="flex gap-66 transition-all duration-500" >
       
         {visibleCharacters.map((id, idx) => {

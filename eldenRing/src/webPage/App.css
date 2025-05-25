@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 72.1vh;
   z-index: 10; /* Đẩy video xuống lớp nền */
 }
 
@@ -19,9 +19,6 @@
   width: 100%; /* Đảm bảo không vượt quá viewport */
 }
 
-.section-container {
-  width: calc(100vw + 17px); /* Tránh việc tính luôn thanh cuộn */
-}
 html, body {
   overflow-x: hidden;
     box-sizing: border-box;

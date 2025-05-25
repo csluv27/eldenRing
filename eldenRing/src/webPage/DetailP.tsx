@@ -1,41 +1,21 @@
-import  { useEffect, useRef, useState } from 'react';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
 
 function DetailP() {
-  const [showBackground, setShowBackground] = useState(false);
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sectionTop = sectionRef.current?.getBoundingClientRect().top || 0;
-      const triggerPoint = window.innerHeight * 1;
-
-      // Khi phần detail tiến vào 80% chiều cao màn hình → bắt đầu hiện nền
-      if (sectionTop < triggerPoint) {
-        setShowBackground(true);
-      } else {
-        setShowBackground(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
-
   return (
     <ParallaxProvider>
-      <section ref={sectionRef} className="relative h-[150vh] w-13/15 overflow-hidden">
-        {/* Nền parallax cố định nhưng chỉ hiện khi tới phần Detail */}
-        <img
-          src="./godfrey.jpg"
-          alt=""
-          className={`fixed top-0 left-0 w-full h-full object-cover transition-opacity  ease-in-out z-1 ${showBackground ? 'opacity-100' : 'opacity-0'
-            }`}
-        />
+      <section className="relative h-[136vh] w-13/15 justify-center overflow-hidden"
+          style={{ 
+          backgroundImage: "url('./godfrey.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          objectFit: 'contain',
+          width: '100%',
+           }}
+        >
 
-        <div className="relative z-10 text-white flex top-0 left-50 px-25 pb-20 flex-col">
+        <div className="relative z-10 w-13/15 text-white flex top-0 left-50 px-25 flex-col ">
           <Parallax translateY={[30, -30]}>
             <h2 className='font-[700] text-4xl my-10'>Key features</h2>
           </Parallax>
