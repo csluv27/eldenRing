@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function ContentBelow() {
   return (
-    <section className="z-2  flex relative-content relative h-[136vh] w-13/15 justify-center overflow-hidden"
+    <section className="z-2  flex flex-col relative-content relative h-[300vh] w-13/15 overflow-hidden"
       style={{
         backgroundImage: "url('/background/erbackground.jpg')",
         backgroundSize: 'cover',
@@ -13,8 +13,8 @@ function ContentBelow() {
       }}
     >
 
-      <div id="shopNow" className="flex flex-col h-full w-full text-white text-[18px]">
-        {/* Header with SVG and Title */}
+      <div id="shopNow" className="relative flex flex-col h-[76vh] w-full text-white text-[18px] mb-20">
+
         <div className="flex absolute flex-row items-center gap-4 top-19 left-36">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-[73px] h-[100px]" viewBox="0 0 44.669 60.293" fill="#fff">
             <path d="M44.218,18.8a5.6,5.6,0,0,0-5.6-5.52H33.3V10.961a10.961,10.961,0,0,0-21.923,0v2.322H6.047A5.6,5.6,0,0,0,.444,18.8L0,49.012A5.6,5.6,0,0,0,5.6,54.7H16.738l5.6,5.6,5.6-5.6H39.066a5.6,5.6,0,0,0,5.6-5.687Zm-30.443-7.84a8.559,8.559,0,0,1,17.118,0v2.321H13.775ZM41.346,51.34a3.175,3.175,0,0,1-2.28.954H26.936l-.7.7-3.9,3.9-3.9-3.9-.7-.7H5.6a3.2,3.2,0,0,1-3.2-3.247l.444-30.209a3.214,3.214,0,0,1,3.2-3.153h5.326V20.9h2.4V15.685H30.893V20.9h2.4V15.685h5.321a3.215,3.215,0,0,1,3.2,3.153l.449,30.209a3.175,3.175,0,0,1-.92,2.294" />
@@ -22,8 +22,7 @@ function ContentBelow() {
           <h2 className="text-white text-4xl font-bold">Shop now</h2>
         </div>
 
-        {/* Main content area split into two equal columns */}
-        <div className="flex absolute top-[-18rem] flex-row items-center justify-center h-full w-full gap-8">
+        <div className="flex absolute top-60 flex-row items-center justify-center w-full gap-8">
           {/* LEFT SIDE */}
           <div className="w-4/9 flex flex-col items-end justify-center gap-6">
             <div className="flex flex-row items-center gap-4 ">
@@ -66,7 +65,6 @@ function ContentBelow() {
                 </button>
               </div>
             </div>
-
           </div>
 
           {/* RIGHT SIDE */}
@@ -97,11 +95,63 @@ function ContentBelow() {
 
       </div>
 
-      <div id="wishlist">
+      <div id="wishlist" className="relative bg-[#c19d53] text-white flex items-center justify-center h-[38vh] w-full overflow-hidden mb-10">
+        <div className="absolute inset-[-150] flex flex-wrap rotate-[70deg] opacity-30 z-0" style={{ pointerEvents: 'none' }}>
+          {Array.from({ length: 100 }).map((_, i) => (
+            <img
+              key={i}
+              src="/info/shapes-pattern.svg"
+              alt=""
+              style={{
+                width: '10vw',
+                minWidth: '300px',
 
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="absolute inset-0 z-10" style={{
+          background: 'radial-gradient(circle at 50% -30%, rgba(255,255,255,0.3), transparent 70%)',
+          pointerEvents: 'none',
+        }}></div>
+
+        <div className="z-20 text-center px-4">
+          <h2 className="text-4xl font-bold">Wishlist on your favourite platform</h2>
+          <p className="text-[16px] mt-[40px]">Wishlist now to stay tuned for the latest updates about this video game! </p>
+          <div className="grid grid-cols-3 gap-x-12 items-center justify-center  mt-[40px] w-full max-w-[1200px] mx-auto">
+            <button className="group grid-cols-1 cursor-pointer whitespace-nowrap min-w-max text-[#c19d53] border bg-white border-[#c19d53] font-[500] text-[16px] px-5 py-[15px] rounded hover:bg-transparent hover:border-white hover:text-white transition flex items-center justify-center">
+              <img src="/info/ps.png" className="w-6 mr-20 group-hover:invert group-hover:brightness-0 transition" />
+              PlayStaion
+              <img src="/info/external.png" className="w-4 ml-20 group-hover:invert group-hover:brightness-0 transition" />
+            </button>
+            <button className="group grid-cols-1 cursor-pointer whitespace-nowrap min-w-max text-[#c19d53] border bg-white border-[#c19d53] font-[500] text-[16px] px-5 py-[15px] rounded hover:bg-transparent hover:border-white hover:text-white transition flex items-center justify-center">
+              <img src="/info/xbox.png" className="w-6 mr-20 group-hover:invert group-hover:brightness-0 transition" />
+              Xbox X/S
+              <img src="/info/external.png" className="w-4 ml-20 group-hover:invert group-hover:brightness-0 transition" />
+            </button>
+            <button className="group grid-cols-1 cursor-pointer whitespace-nowrap min-w-max text-[#c19d53] border bg-white border-[#c19d53] font-[500] text-[16px] px-5 py-[15px] rounded hover:bg-transparent hover:border-white hover:text-white transition flex items-center justify-center">
+              <img src="/info/steam.png" className="w-6 mr-20 group-hover:invert group-hover:brightness-0 transition" />
+              Steam PC
+              <img src="/info/external.png" className="w-4 ml-20 group-hover:invert group-hover:brightness-0 transition" />
+            </button>
+          </div>
+        </div>
       </div>
-      <div id="about">
 
+      <div id="about" className="relative h-[100vh] w-full flex justify-center text-white">
+        <div className="max-w-[105vh] w-full px-4">
+          <img src="/info/erborder.png" alt="" />
+          <h2 className="font-bold text-4xl text-[#c19d53] text-center mt-15 mb-7">Tarnished of the Lands Between</h2>
+          <div className="text-center text-[16px] flex flex-col items-center justify-center gap-4">
+            <p>The Golden Order has been shattered. Throughout the Lands Between, Demigods holding shards of the Elden Ring squabble and make war over the ruins of a perfect realm, now abandoned by the golden guidance of the Greater Will.</p>
+            <p>As the echoes of this conflict thunder in the distance, an outcast arrives. Once, their ancestors called the Lands Between home, but the blessed light of grace was lost to their tribe long ago and they were expelled from the kingdom. They are the Tarnished, and they have returned to claim the Elden Lordship promised to them by legend.</p>
+            <p>This is the world of ELDEN RING. As a Tarnished, the Lands Between await your exploration. You will ride through the vast fields, gallop over rolling hills, and leap to the top of rocky crags on your ephemeral steed, revealing a world teeming with life and danger.</p>
+            <p>In the grand fields where your journey begins, mythic creatures prowl the veldts, ineffable horrors lurk in the bogs and marshes, and all manner of soldiers and itinerant warriors are waiting for those who wander unawares. Shy creatures nibble on sweet grasses or scuttle through the underbrush.</p>
+            <p>Those few inhabitants who are not mad or hostile linger near the broken remnants of cities left behind by the Shattering. They may have answers for you, if you help them. Above them all, ensconced in vast legacies bristling with traps, secrets, and guardians, the Demigods – warped Lords who began as members of a royal and noble family – rule their domains with the unyielding power granted by shards of the Elden Ring.</p>
+          </div>
+          <img src="/info/erborder.png" alt="" />
+        </div>
       </div>
       <div id="news">
 
