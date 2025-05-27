@@ -1,7 +1,36 @@
 import { faCompactDisc } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from 'react';
+
+const newsList = [
+  {
+    date: '26 May 2025',
+    title: 'Live-Action Film Adaptation Of ELDEN RING Announced',
+    desc: '',
+    image: '/info/new1.webp'
+  },
+  {
+    date: '11 November 2024',
+    title: 'ELDEN RING Shadow of the Erdtree soundtrack available now on Bandai Namco Game Music channels',
+    desc: '',
+    image: '/info/new2.webp'
+  },
+  {
+    date: '17 October 2024',
+    title: 'Elden Ring – Patch Notes Version 1.16',
+    desc: '',
+    image: '/info/new3.webp'
+  },
+  {
+    date: '02 May 2025',
+    title: 'Elden Ring – Patch Notes Version 1.15',
+    desc: '',
+    image: '/info/new4.webp'
+  },
+];
 
 function ContentBelow() {
+  const [selectedNews, setSelectedNews] = useState(newsList[0]); // tin mặc định bên trái
   return (
     <section className="z-2  flex flex-col relative-content relative h-[600vh] w-13/15 overflow-hidden"
       style={{
@@ -174,48 +203,62 @@ function ContentBelow() {
       </div>
 
       <div id="news" className="relative h-[100vh] mx-22 flex flex-col text-white">
-        <div className="flex flex-row text-right">
-          <h2 className="text-white text-4xl mb-10 font-bold">News</h2>
-        </div>
-        <div className="flex flex-row w-full gap-10">
-          {/* left */}
-          <div className="w-3/5">
-            <img src="/info/new1.webp" alt="" />
-            <div className="bg-white text-black w-full h-51">
-
-            </div>
+        <div id="news" className="relative h-[100vh] flex flex-col text-white">
+          <div className="flex flex-row text-right">
+            <h2 className="text-white text-4xl mb-10 font-bold">News</h2>
           </div>
-          {/* right */}
-          <div className="w-2/5 flex flex-col gap-4">
-            <div className="grid grid-rows-4 gap-4">
-
-              <div className="flex flex-row grid-rows-1 group w-full">
-                <img src="/info/new1.webp" className="w-[40%]" alt="" />
-                <div className="bg-white text-black w-full h-auto">
-                </div>
+          <div className="flex flex-row w-full gap-10">
+            {/* Left section (hiển thị theo state) */}
+            <div className="w-3/5 group overflow-hidden cursor-pointer h-auto hover:bg-black hover:text-white">
+              <div className="h-auto w-full overflow-hidden object-cover">
+                <img
+                  src={selectedNews.image}
+                  className="group-hover:scale-110 w-full h-auto transition-transform duration-500"
+                  alt=""
+                />
               </div>
-              <div className="flex flex-row grid-rows-1 group w-full">
-                <img src="/info/new2.webp" className="w-[40%]" alt="" />
-                <div className="bg-white text-black w-full h-auto">
-                </div>
-              </div>
-              <div className="flex flex-row grid-rows-1 group w-full">
-                <img src="/info/new3.webp" className="w-[40%]" alt="" />
-                <div className="bg-white text-black w-full h-auto">
-                </div>
-              </div>
-              <div className="flex flex-row grid-rows-1 group w-full">
-                <img src="/info/new4.webp" className="w-[40%]" alt="" />
-                <div className="bg-white text-black w-full h-auto">
-                </div>
+              <div className="bg-white flex flex-col text-black w-full h-55 px-10 py-5 group-hover:bg-[#7f8b84] group-hover:text-white transition-colors duration-500">
+                <span className="text-[10px] font-[400] mb-5">{selectedNews.date}</span>
+                <h2 className="text-[24px] text-[#c19d53] font-bold">{selectedNews.title}</h2>
+                <span className="text-[16px] text-[#f28430] mt-auto text-right">Learn more</span>
               </div>
             </div>
-            <div className="mt-auto">
-            <button className="group cursor-pointer text-white border bg-[#c19d53] border-[#c19d53] font-[500] text-[15px] px-16 py-[15px] rounded hover:bg-transparent hover:text-[#c19d53] transition flex items-center justify-center">
-              SEE ALL NEWS!
-            </button>
-            </div>
 
+            {/* Right section (click để đổi state) */}
+            <div className="w-2/5 flex flex-col gap-4">
+              <div className="grid grid-rows-4 gap-4">
+                {newsList.map((item, index) => {
+                  const isActive = item.title === selectedNews.title; // hoặc item.id nếu có id
+
+                  return (
+                    <div
+                      key={index}
+                      className={`flex flex-row grid-rows-1 group w-full cursor-pointer ${isActive ? 'bg-[#c19d53] text-white' : ''
+                        }`}
+                      onClick={() => setSelectedNews(item)}
+                    >
+                      <img src={item.image} className="w-[40%]" alt="" />
+                      <div
+                        className={`w-full h-auto px-5 py-2 ${isActive
+                            ? 'bg-[#c19d53] text-white'
+                            : 'bg-white text-black group-hover:bg-[#999999]'
+                          }`}
+                      >
+                        <span className="text-[12px] font-[400] mb-5">{item.date}</span>
+                        <h2 className="text-[16px]">{item.title}</h2>
+                      </div>
+                    </div>
+                  );
+                })}
+
+              </div>
+
+              <div className="mt-auto">
+                <button className="group cursor-pointer text-white border bg-[#c19d53] border-[#c19d53] font-[500] text-[15px] px-16 py-[15px] rounded hover:bg-transparent hover:text-[#c19d53] transition flex items-center justify-center">
+                  SEE ALL NEWS!
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
