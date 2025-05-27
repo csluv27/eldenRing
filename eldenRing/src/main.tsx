@@ -8,6 +8,7 @@ import DetailP from './webPage/DetailP.tsx'
 import Character from './webPage/Character.tsx'
 import ContentBelow from './webPage/ContentBelow.tsx'
 import MainContent from './webPage/MainContent.tsx'
+import Footer from './webPage/footer.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
 
@@ -18,5 +19,6 @@ createRoot(document.getElementById('root')!).render(
     <DetailP></DetailP>
     <Character></Character>
     <ContentBelow></ContentBelow>
+    <Footer></Footer>
   </StrictMode>,
 )

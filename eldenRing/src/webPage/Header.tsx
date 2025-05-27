@@ -21,9 +21,9 @@ function Header() {
       <div className={`transition-transform duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-full'}`}>
         {/* Top bar */}
         <div className="bg-black h-18 w-full flex items-center justify-end px-10 space-x-9 z-10 ">
-          <FontAwesomeIcon icon={faUser} className="text-white text-xl" />
-          <img src="./header/vietnam.png" alt="Vietnam" className="max-h-6 object-contain" />
-          <svg className='max-h-12 object-contain w-auto'
+          <FontAwesomeIcon icon={faUser} className="text-white text-xl cursor-pointer" />
+          <img src="./header/vietnam.png" alt="Vietnam" className="max-h-6 object-contain cursor-pointer" />
+          <svg className='max-h-12 object-contain w-auto cursor-pointer'
             id="be453618-7c74-4c2c-8cd1-f86f1901c5ba"
             width="73"
             height="44"

@@ -32,7 +32,7 @@ const newsList = [
 function ContentBelow() {
   const [selectedNews, setSelectedNews] = useState(newsList[0]); // tin mặc định bên trái
   return (
-    <section className="z-2  flex flex-col relative-content relative h-[600vh] w-13/15 overflow-hidden"
+    <section className="z-2  flex flex-col relative-content relative h-[475vh] w-13/15 overflow-hidden"
       style={{
         backgroundImage: "url('/background/erbackground.jpg')",
         backgroundSize: 'cover',
@@ -202,7 +202,7 @@ function ContentBelow() {
         </div>
       </div>
 
-      <div id="news" className="relative h-[100vh] mx-22 flex flex-col text-white">
+      <div id="news" className="relative h-[80vh] mx-22 flex flex-col text-white">
         <div id="news" className="relative h-[100vh] flex flex-col text-white">
           <div className="flex flex-row text-right">
             <h2 className="text-white text-4xl mb-10 font-bold">News</h2>
@@ -240,8 +240,8 @@ function ContentBelow() {
                       <img src={item.image} className="w-[40%]" alt="" />
                       <div
                         className={`w-full h-auto px-5 py-2 ${isActive
-                            ? 'bg-[#c19d53] text-white'
-                            : 'bg-white text-black group-hover:bg-[#999999]'
+                          ? 'bg-[#c19d53] text-white'
+                          : 'bg-white text-black group-hover:bg-[#999999]'
                           }`}
                       >
                         <span className="text-[12px] font-[400] mb-5">{item.date}</span>
@@ -263,12 +263,126 @@ function ContentBelow() {
         </div>
 
       </div>
-      <div id="subscribe">
 
-      </div>
-      <div id="systemRequirements">
+      <div id="subscribe" className="relative h-[56vh] flex flex-col gap-10 text-white">
+        <div>
+          <div className="relative w-full h-full">
+            <img src="./detailPage/erBorder.png" className='z-1 absolute top-[-2.5rem] h-auto' alt="" />
+            <img src="/info/missnews.jpg" className="object-cover w-full h-auto" alt="" />
+            <img src="./detailPage/erBorder.png" className='z-1 absolute right-[-43rem] top-65 h-auto' alt="" />
+            {/* left */}
 
+            <div className="absolute top-0 left-0 w-full h-full flex flex-col px-22 pt-20 ">
+              <span className="font-bold text-4xl">Don't miss any news</span>
+              <span className="font-[500] text-[18px] mt-2">Get the latest updates from our products and services</span>
+
+              <div className="flex flex-row gap-4 mt-5">
+                <input
+                  type="text"
+                  placeholder="Your email"
+                  className="border border-gray-300 text-gray-600 bg-white text-[14px] px-4 py-3 rounded w-150"
+                />
+                <button className="group cursor-pointer whitespace-nowrap min-w-max text-white border bg-[#c19d53] border-[#c19d53] font-[500] text-[14px] px-10 py-[10px] rounded hover:bg-transparent hover:border-[#c19d53] hover:text-[#c19d53] transition flex items-center justify-center">
+                  SUBSCRIBE
+                </button>
+              </div>
+            </div>
+
+            {/* right */}
+            <div className="absolute bg-[#c19d53] top-0 right-0 w-2/5 h-[300px] flex flex-col gap-5 px-22 pt-20">
+              <span className="font-bold text-4xl">Follow us</span>
+              <span className="font-[500] text-[18px]">Become part of the community</span>
+              <div className="flex flex-row gap-7">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" ><g transform="scale(8.53333,8.53333)"><path d="M15,3c-6.627,0 -12,5.373 -12,12c0,6.016 4.432,10.984 10.206,11.852v-8.672h-2.969v-3.154h2.969v-2.099c0,-3.475 1.693,-5 4.581,-5c1.383,0 2.115,0.103 2.461,0.149v2.753h-1.97c-1.226,0 -1.654,1.163 -1.654,2.473v1.724h3.593l-0.487,3.154h-3.106v8.697c5.857,-0.794 10.376,-5.802 10.376,-11.877c0,-6.627 -5.373,-12 -12,-12z"></path></g></g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" ><g transform="scale(5.12,5.12)"><path d="M5.91992,6l14.66211,21.375l-14.35156,16.625h3.17969l12.57617,-14.57812l10,14.57813h12.01367l-15.31836,-22.33008l13.51758,-15.66992h-3.16992l-11.75391,13.61719l-9.3418,-13.61719zM9.7168,8h7.16406l23.32227,34h-7.16406z"></path></g></g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" ><g transform="scale(8.53333,8.53333)"><path d="M15,4c-4.186,0 -9.61914,1.04883 -9.61914,1.04883l-0.01367,0.01563c-1.90652,0.30491 -3.36719,1.94317 -3.36719,3.93555v6v0.00195v5.99805v0.00195c0.00384,1.96564 1.4353,3.63719 3.37695,3.94336l0.00391,0.00586c0,0 5.43314,1.05078 9.61914,1.05078c4.186,0 9.61914,-1.05078 9.61914,-1.05078l0.00195,-0.00195c1.94389,-0.30554 3.37683,-1.97951 3.37891,-3.94727v-0.00195v-5.99805v-0.00195v-6c-0.00288,-1.96638 -1.43457,-3.63903 -3.37695,-3.94531l-0.00391,-0.00586c0,0 -5.43314,-1.04883 -9.61914,-1.04883zM12,10.39844l8,4.60156l-8,4.60156z"></path></g></g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" ><g transform="scale(5.12,5.12)"><path d="M5.3125,1l-3.3125,8.8125v33.1875h11v6h7.40625l6,-6h9l12.59375,-12.5625v-29.4375zM11,6h32v22l-6,6h-12l-6,6v-6h-8zM20,13v14h6v-14zM30,13v14h6v-14z"></path></g></g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" ><g transform="scale(8.53333,8.53333)"><path d="M9.99805,3c-3.859,0 -6.99805,3.14195 -6.99805,7.00195v10c0,3.859 3.14195,6.99805 7.00195,6.99805h10c3.859,0 6.99805,-3.14195 6.99805,-7.00195v-10c0,-3.859 -3.14195,-6.99805 -7.00195,-6.99805zM22,7c0.552,0 1,0.448 1,1c0,0.552 -0.448,1 -1,1c-0.552,0 -1,-0.448 -1,-1c0,-0.552 0.448,-1 1,-1zM15,9c3.309,0 6,2.691 6,6c0,3.309 -2.691,6 -6,6c-3.309,0 -6,-2.691 -6,-6c0,-3.309 2.691,-6 6,-6zM15,11c-2.20914,0 -4,1.79086 -4,4c0,2.20914 1.79086,4 4,4c2.20914,0 4,-1.79086 4,-4c0,-2.20914 -1.79086,-4 -4,-4z"></path></g></g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" ><g transform="scale(5.12,5.12)"><path d="M41,4h-32c-2.76,0 -5,2.24 -5,5v32c0,2.76 2.24,5 5,5h32c2.76,0 5,-2.24 5,-5v-32c0,-2.76 -2.24,-5 -5,-5zM37.72,33l-3.73,-0.01c0,0 -0.08,0.01 -0.21,0.01c-0.3,0 -0.92,-0.08 -1.65,-0.58c-1.31,-0.91 -2.56,-3.17 -3.55,-3.17c-0.07,0 -0.13,0.01 -0.19,0.03c-0.86,0.27 -1.12,1.13 -1.12,2.18c0,0.37 -0.26,0.54 -0.96,0.54h-1.93c-2.16,0 -4.25,-0.05 -6.6,-2.62c-3.46,-3.79 -6.7,-10.53 -6.7,-10.53c0,0 -0.18,-0.39 0.01,-0.62c0.18,-0.21 0.6,-0.23 0.76,-0.23c0.04,0 0.06,0 0.06,0h4c0,0 0.37,0.07 0.64,0.27c0.23,0.17 0.35,0.48 0.35,0.48c0,0 0.68,1.32 1.53,2.81c1.43,2.46 2.2,3.28 2.75,3.28c0.09,0 0.18,-0.02 0.27,-0.07c0.82,-0.45 0.58,-4.09 0.58,-4.09c0,0 0.01,-1.32 -0.42,-1.9c-0.33,-0.46 -0.96,-0.59 -1.24,-0.63c-0.22,-0.03 0.14,-0.55 0.62,-0.79c0.62,-0.3 1.65,-0.36 2.89,-0.36h0.6c1.17,0.02 1.2,0.14 1.66,0.25c1.38,0.33 0.91,1.62 0.91,4.71c0,0.99 -0.18,2.38 0.53,2.85c0.05,0.03 0.12,0.05 0.21,0.05c0.46,0 1.45,-0.59 3.03,-3.26c0.88,-1.52 1.56,-3.03 1.56,-3.03c0,0 0.15,-0.27 0.38,-0.41c0.22,-0.13 0.22,-0.13 0.51,-0.13h0.03c0.32,0 3.5,-0.03 4.2,-0.03h0.08c0.67,0 1.28,0.01 1.39,0.42c0.16,0.62 -0.49,1.73 -2.2,4.03c-2.82,3.77 -3.14,3.49 -0.8,5.67c2.24,2.08 2.7,3.09 2.78,3.22c0.93,1.54 -1.03,1.66 -1.03,1.66z"></path></g></g>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
+                  <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" ><g transform="scale(8.53333,8.53333)"><path d="M25.12,6.946c-2.424,-1.948 -6.257,-2.278 -6.419,-2.292c-0.256,-0.022 -0.499,0.123 -0.604,0.357c-0.004,0.008 -0.218,0.629 -0.425,1.228c2.817,0.493 4.731,1.587 4.833,1.647c0.478,0.278 0.638,0.891 0.359,1.368c-0.185,0.318 -0.52,0.496 -0.864,0.496c-0.171,0 -0.343,-0.043 -0.501,-0.135c-0.028,-0.017 -2.836,-1.615 -6.497,-1.615c-3.662,0 -6.471,1.599 -6.499,1.615c-0.477,0.277 -1.089,0.114 -1.366,-0.364c-0.277,-0.476 -0.116,-1.087 0.36,-1.365c0.102,-0.06 2.023,-1.158 4.848,-1.65c-0.218,-0.606 -0.438,-1.217 -0.442,-1.225c-0.105,-0.235 -0.348,-0.383 -0.604,-0.357c-0.162,0.013 -3.995,0.343 -6.451,2.318c-1.284,1.186 -3.848,8.12 -3.848,14.115c0,0.106 0.027,0.209 0.08,0.301c1.771,3.11 6.599,3.924 7.699,3.959c0.007,0.001 0.013,0.001 0.019,0.001c0.194,0 0.377,-0.093 0.492,-0.25l1.19,-1.612c-2.61,-0.629 -3.99,-1.618 -4.073,-1.679c-0.444,-0.327 -0.54,-0.953 -0.213,-1.398c0.326,-0.443 0.95,-0.541 1.394,-0.216c0.037,0.024 2.584,1.807 7.412,1.807c4.847,0 7.387,-1.79 7.412,-1.808c0.444,-0.322 1.07,-0.225 1.395,0.221c0.324,0.444 0.23,1.066 -0.212,1.392c-0.083,0.061 -1.456,1.048 -4.06,1.677l1.175,1.615c0.115,0.158 0.298,0.25 0.492,0.25c0.007,0 0.013,0 0.019,-0.001c1.101,-0.035 5.929,-0.849 7.699,-3.959c0.053,-0.092 0.08,-0.195 0.08,-0.301c0,-5.994 -2.564,-12.928 -3.88,-14.14zM11,19c-1.105,0 -2,-1.119 -2,-2.5c0,-1.381 0.895,-2.5 2,-2.5c1.105,0 2,1.119 2,2.5c0,1.381 -0.895,2.5 -2,2.5zM19,19c-1.105,0 -2,-1.119 -2,-2.5c0,-1.381 0.895,-2.5 2,-2.5c1.105,0 2,1.119 2,2.5c0,1.381 -0.895,2.5 -2,2.5z"></path></g></g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="relative w-full h-full">
+            <img src="./detailPage/erBorder.png" className='z-1 absolute top-[-2.5rem] h-auto' alt="" />
+            <img src="/info/erdtree.jpg" alt="" />
+            <img src="./detailPage/erBorder.png" className='z-1 absolute right-[-43rem] top-65 h-auto' alt="" />
+            <div className="absolute top-0 left-0  flex flex-col gap-5 m-auto justify-center items-center w-full h-full ">
+              <span className="font-bold text-4xl">Seek for help?</span>
+              <span className="font-[500] text-[18px]">We may have a solution for you!</span>
+              <button className="group cursor-pointer whitespace-nowrap min-w-max text-white border bg-[#c19d53] border-[#c19d53] font-[400] text-[14px] px-10 py-[15px] rounded hover:bg-transparent hover:border-[#c19d53] hover:text-[#c19d53] transition flex items-center justify-center">
+                ASK THE SUPPORT TEAM
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div id="systemRequirements" className="relative h-[45vh] mx-22 mt-22 flex flex-col text-white">
+        <h2 className="font-bold text-4xl">System requirements :</h2>
+
+        <div className="flex flex-row items-center justify-between gap-10 mt-8">
+          {/* Minimum */}
+          <div className="w-1/2 flex flex-col items-start justify-center">
+            <h2 className="font-[500] my-5 text-[18px]">Minimum</h2>
+            <ul className="w-full border-1 border-white p-4 pb-20 space-y-1 text-[14px]">
+              {[
+                'OS: Windows 10',
+                'Processor: Intel Core i5-8400 | AMD RYZEN 3 3300X',
+                'Memory: 12 GB RAM',
+                'Graphics: Nvidia GeForce GTX 1060, 3 GB | AMD Radeon RX 580, 4 GB',
+                'DirectX: Version 12 (Feature Level 12.0)',
+                'Storage: 60 GB available space',
+                'Sound Card: Windows-Compatible Audio device',
+                'Current specs are valid for launch day and may be updated in the future.',
+              ].map((item, index) => (
+                <li key={index} className="before:content-['●'] before:mr-2 before:text-white leading-relaxed">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Recommended */}
+          <div className="w-1/2 flex flex-col items-start justify-center">
+            <h2 className="font-[500] my-5 text-[18px]">Recommended</h2>
+            <ul className="w-full border-1 border-white p-4 pb-20 space-y-1 text-[14px]">
+              {[
+                'OS: Windows 11/10',
+                'Processor: Intel Core i7-8700K | AMD Ryzen 5 3600X',
+                'Memory: 16 GB RAM',
+                'Graphics: Nvidia GeForce GTX 1070, 8 GB | AMD Radeon RX VEGA 56, 8 GB',
+                'DirectX: Version 12 (Feature Level 12.0)',
+                'Storage: 60 GB available space',
+                'Sound Card: Windows-Compatible Audio device',
+                'Current specs are valid for launch day and may be updated in the future.',
+              ].map((item, index) => (
+                <li key={index} className="before:content-['●'] before:mr-2 before:text-white leading-relaxed">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
 
     </section>
   )
