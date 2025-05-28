@@ -264,7 +264,7 @@ function ContentBelow() {
 
       </div>
 
-      <div id="subscribe" className="relative h-[56vh] flex flex-col gap-10 text-white">
+      <div id="subscribe" className="relative h-[56vh] flex flex-col gap-10 mt-10 text-white">
         <div>
           <div className="relative w-full h-full">
             <img src="./detailPage/erBorder.png" className='z-1 absolute top-[-2.5rem] h-auto' alt="" />
@@ -322,7 +322,7 @@ function ContentBelow() {
         <div>
           <div className="relative w-full h-full">
             <img src="./detailPage/erBorder.png" className='z-1 absolute top-[-2.5rem] h-auto' alt="" />
-            <img src="/info/erdtree.jpg" alt="" />
+            <img src="/info/erdtree.jpg" className="bg-fixed" alt="" />
             <img src="./detailPage/erBorder.png" className='z-1 absolute right-[-43rem] top-65 h-auto' alt="" />
             <div className="absolute top-0 left-0  flex flex-col gap-5 m-auto justify-center items-center w-full h-full ">
               <span className="font-bold text-4xl">Seek for help?</span>

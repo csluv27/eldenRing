@@ -10,21 +10,21 @@ function Footer() {
           </svg>
         </div>
         <div className="cursor-pointer">
-          <nav className="text-[18px] text-left flex flex-col gap-3 list-none">
-            <li>Games</li>
-            <li>About</li>
-            <li>Press</li>
-            <li>Recruitment</li>
-            <li>Licensing</li>
+          <nav className="text-[18px] text-left  flex flex-col gap-3 list-none">
+            <li className="hover:text-[#c19d53]">Games</li>
+            <li className="hover:text-[#c19d53]">About</li>
+            <li className="hover:text-[#c19d53]">Press</li>
+            <li className="hover:text-[#c19d53]">Recruitment</li>
+            <li className="hover:text-[#c19d53]">Licensing</li>
           </nav>
         </div>
         <div className="text-left flex flex-col gap-3">
           <span className="text-[14px] ">DO YOU HAVE A QUESTION?</span>
-          <span className="text-[14px] ">Go to <u className="cursor-pointer">Our support</u></span>
+          <span className="text-[14px] ">Go to <u className="cursor-pointer ml-1 underline-offset-6">Our support</u></span>
           <div className="flex flex-row gap-20 mt-10 cursor-pointer">
-            <u className="text-[16px]">REGISTER A GAME</u>
-            <u className="text-[16px]">JOIN THE CLUB</u>
-            <span className="text-[16px]">LANGUAGE <span className="text-red-500">ENGLISH</span></span>
+            <u className="text-[16px] underline-offset-8">REGISTER A GAME</u>
+            <u className="text-[16px] underline-offset-8">JOIN THE CLUB</u>
+            <span className="text-[16px]">LANGUAGES <span className="text-red-500">ENGLISH</span></span>
           </div>
 
           <div className="flex flex-row items-end cursor-pointer ml-auto mt-7 gap-10">
@@ -52,14 +52,14 @@ function Footer() {
           © 2010 - 2025 Bandai Namco Entertainment Europe S.A.S
         </span>
         <div className="text-[14px] w-full md:w-3/4 flex flex-wrap gap-x-4 gap-y-2 justify-end text-right md:mt-0 cursor-pointer">
-          <a>Legal documentation</a>
-          <a>Legal information</a>
-          <a>Reservation of text/data mining rights</a>
-          <a>Illicit content report</a>
-          <a>Cookies policy</a>
-          <a>Management of cookies</a>
-          <a>Modern slavery act</a>
-          <a href="https://github.com/csluv27">Corn Spring Luv</a>
+          <a className="hover:text-gray-600">Legal documentation</a>
+          <a className="hover:text-gray-600">Legal information</a>
+          <a className="hover:text-gray-600">Reservation of text/data mining rights</a>
+          <a className="hover:text-gray-600">Illicit content report</a>
+          <a className="hover:text-gray-600">Cookies policy</a>
+          <a className="hover:text-gray-600">Management of cookies</a>
+          <a className="hover:text-gray-600">Nara CSLuv</a>
+          <a href="https://github.com/csluv27" className="hover:text-gray-600">Corn Spring Luv</a>
         </div>
       </div>
 

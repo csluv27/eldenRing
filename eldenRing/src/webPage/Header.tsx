@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faChevronDown, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 
 function Header() {
@@ -15,9 +15,14 @@ function Header() {
     window.addEventListener('wheel', handleWheel);
     return () => window.removeEventListener('wheel', handleWheel);
   }, []);
+  
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null); // 'universe' | 'news' | null
   return (
-    <header className="fixed top-0 left-0 w-[calc(100vw-15px)] z-50">
+    <header className="fixed top-0 left-0 w-full z-50">
+
+
       <div className={`transition-transform duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-full'}`}>
         {/* Top bar */}
         <div className="bg-black h-18 w-full flex items-center justify-end px-10 space-x-9 z-10 ">
@@ -77,7 +82,7 @@ function Header() {
         </div>
 
         {/* Line màu — chồng lên top bar */}
-        <div className="absolute left-170 right-0 top-17 h-1 flex overflow-hidden z-20">
+        <div className="absolute w-3/5 right-0 top-17 h-1 flex overflow-hidden z-20">
           <div className="flex-1 bg-[#c19d53] rounded-s-full" />
           <div className="flex-1 bg-blue-300" />
           <div className="flex-1 bg-green-800" />
@@ -89,10 +94,10 @@ function Header() {
 
       <div className={`transition-transform duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className={`flex flex-row justify-between z-50 w-full transition-all duration-300`}>
-          <ul className="bg-black h-18 w-full flex items-center px-12 space-x-9 ">
+          <ul className="bg-black h-18 w-full flex items-center px-12 ">
             <img src="./header/eldenring_new.png" alt="" className="max-h-15 object-contain mr-15 transform hover:scale-110 transition-transform duration-500 cursor-pointer" />
-            <ul className="flex space-x-8 text-white text-lg">
 
+            <ul className="hidden lg:flex space-x-8 w-2/3 text-white text-lg">
               <li className="relative group inline-block">
                 <div className="flex items-center space-x-1 text-white cursor-pointer">
                   <span className='pt-6 pb-6  hover:text-[#c19d53] transition-all duration-500'>Universe</span>
@@ -137,19 +142,88 @@ function Header() {
               </li>
 
             </ul>
+            <ul className="hidden lg:flex bg-black text-white w-1/3 h-18 items-center  ml-auto justify-end gap-6">
+              <button className="text-white text-2xl cursor-pointer hover:text-[#c19d53]">
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </button>
+              <button className=" text-white border bg-[#c19d53] border-solid border-[#c19d53] font-semibold  text-[15px] px-7 py-2 rounded cursor-pointer hover:bg-black hover:text-[#c19d53] transition">
+                BUY NOW
+              </button>
+            </ul>
+
+            <div className="flex lg:hidden ml-auto items-center  gap-7 pr-6">
+               <button className="text-white text-xl hover:text-[#c19d53]">
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </button>
+              <button onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+              }}>
+                <FontAwesomeIcon icon={faBars} className="text-white text-2xl" />
+              </button>
+            </div>
           </ul>
 
-
-          <ul className="bg-black text-white w-full h-18 flex items-center justify-end px-12 space-x-9">
-            <button className="text-white text-2xl cursor-pointer hover:text-[#c19d53]">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-            <button className=" text-white border bg-[#c19d53] border-solid border-[#c19d53] font-semibold  text-[15px] px-7 py-2 rounded cursor-pointer hover:bg-black hover:text-[#c19d53] transition">
-              BUY NOW
-            </button>
-          </ul>
 
         </div>
+          {isMobileMenuOpen && (
+        <div className={`transition-transform absolute flex flex-col top-15 left-0 w-full text-[16px] bg-black text-white z-[999] pl-13 pr-18 py-6 duration-400 ease-in-out ${showTop ? 'translate-y-0' : '-translate-y-3'}`}>
+        
+          <div className="flex justify-end">
+            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white text-3xl">
+              ✕
+            </button>
+          </div>
+
+          <div className="space-y-4 mt-4">
+            {/* Universe menu */}
+            <div>
+              <div
+                className="hover:text-[#c19d53] cursor-pointer flex justify-between items-center"
+                onClick={() => setOpenSubMenu(openSubMenu === 'universe' ? null : 'universe')}
+              >
+                Universe
+                <FontAwesomeIcon icon={faChevronDown} className={`transition-transform ${openSubMenu === 'universe' ? 'rotate-180' : ''}`} />
+              </div>
+              {openSubMenu === 'universe' && (
+                <div className="pl-4 space-y-2 mt-2">
+                  <div className="hover:text-[#c19d53] cursor-pointer">Elden Ring</div>
+                  <div className="hover:text-[#c19d53] cursor-pointer">Shadow of the Erdtree</div>
+                  <div className="hover:text-[#c19d53] cursor-pointer">Tarnished Edition</div>
+                  <div className="hover:text-[#c19d53] cursor-pointer">Nightreign</div>
+                </div>
+              )}
+            </div>
+
+            {/* News menu */}
+            <div>
+              <div
+                className="hover:text-[#c19d53] cursor-pointer flex justify-between items-center"
+                onClick={() => setOpenSubMenu(openSubMenu === 'news' ? null : 'news')}
+              >
+                News
+                <FontAwesomeIcon icon={faChevronDown} className={`transition-transform ${openSubMenu === 'news' ? 'rotate-180' : ''}`} />
+              </div>
+              {openSubMenu === 'news' && (
+                <div className="pl-4 space-y-2 mt-2">
+                  <div className="hover:text-[#c19d53] cursor-pointer">Elden Ring Wiki</div>
+                  <div className="hover:text-[#c19d53] cursor-pointer">Nightreign Wiki</div>
+                </div>
+              )}
+            </div>
+
+            <div className="hover:text-[#c19d53] cursor-pointer">Character</div>
+            <div className="hover:text-[#c19d53] cursor-pointer">About</div>
+
+            {/* Buttons section aligned right */}
+            <div className="pt-4 mt-4 flex justify-center space-x-4">
+             
+              <button className="text-white border bg-[#c19d53] border-solid border-[#c19d53] font-semibold text-[15px] px-5 py-2 rounded hover:bg-black hover:text-[#c19d53] transition">
+                BUY NOW
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       </div>
 
 

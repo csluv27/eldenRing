@@ -24,3 +24,6 @@ html, body {
     box-sizing: border-box;
   overflow-x: hidden;
 }
+button{
+  cursor: pointer;
+}
